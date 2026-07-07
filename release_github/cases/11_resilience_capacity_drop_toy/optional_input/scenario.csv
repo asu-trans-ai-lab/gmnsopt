@@ -1,0 +1,4 @@
+scenario_id,family,target_type,target_id,param,value
+capacity_drop_12345,capacity_drop,link,1,capacity_drop_fraction,0.5
+capacity_drop_12345,capacity_drop,link,2,capacity_drop_fraction,0.5
+capacity_drop_12345,capacity_drop,link,3,capacity_drop_fraction,0.5

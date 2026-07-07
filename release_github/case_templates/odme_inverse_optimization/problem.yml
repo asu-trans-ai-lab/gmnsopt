@@ -1,0 +1,17 @@
+problem_name: odme_inverse_optimization_template
+problem_family: odme_inverse_optimization
+problem_type: odme
+formulation_class: ['LP', 'QP', 'NLP', 'stochastic', 'inverse']
+network_format: gmns
+time_horizon: static            # static | dynamic (tau stages)
+modes: [auto]
+scenario_dimension: [normal]    # + capacity_drop | demand_surge | weather | incident | cav_penetration
+decision_variables: [TODO]
+objectives: { primary: TODO }
+constraints: [flow_conservation]
+required_files: ['node.csv', 'link.csv', 'demand.csv']
+optional_files: ['counts.csv', 'detector.csv', 'trajectory.csv', 'scenario.csv']
+default_solver: tier0
+outputs: ['solution.csv', 'objective_trace.csv', 'constraint_status.csv', 'summary.md']
+visualization: { type: desire_line_delta, gui4gmns: true }
+maturity: runnable

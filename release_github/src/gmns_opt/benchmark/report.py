@@ -18,6 +18,11 @@ def write_outputs(out_dir, problem, result, validation):
                 ([{"path_node": n} for n in result.get("path", [])]))
     _write_rows(os.path.join(out_dir, "objective_trace.csv"), result.get("objective_trace", []))
     _write_rows(os.path.join(out_dir, "constraint_status.csv"), result.get("constraint_status", []))
+    if result.get("scenario_summary"):
+        _write_rows(os.path.join(out_dir, "scenario_summary.csv"), result["scenario_summary"])
+    if result.get("solution") and isinstance(result["solution"], list) and result["solution"] \
+            and isinstance(result["solution"][0], dict) and "variable" in result["solution"][0]:
+        _write_rows(os.path.join(out_dir, "decision_variable.csv"), result["solution"])
 
     st = result.get("network_stats", {}); meta = result.get("meta", {})
     lines = [f"# {problem.get('problem_name', 'case')} — result summary\n",

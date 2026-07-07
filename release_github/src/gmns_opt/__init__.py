@@ -12,6 +12,6 @@ from .io import read_gmns, build_graph, validate_gmns
 from .models import shortest_path, min_cost_flow, traffic_assignment
 from .benchmark import run_case
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = ["read_gmns", "build_graph", "validate_gmns",
            "shortest_path", "min_cost_flow", "traffic_assignment", "run_case"]

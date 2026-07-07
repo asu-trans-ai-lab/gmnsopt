@@ -49,9 +49,30 @@ pip install -e ".[viz,solvers,dev]"   # + pandas/matplotlib, Pyomo/HiGHS, pytest
 
 ## Quick start
 ```bash
-gmns-opt validate cases/02_sioux_falls_assignment
 gmns-opt run      cases/02_sioux_falls_assignment      # -> output/ (solution, trace, summary)
+gmns-opt validate cases/02_sioux_falls_assignment
+gmns-opt list-families                                 # the 10-family taxonomy (maturity + classes)
+gmns-opt describe-family signal_queue_control
+gmns-opt solver-status                                 # available solver tiers
+gmns-opt generate-scenarios --case cases/11_resilience_capacity_drop_toy --type capacity_drop --links 1,2,3 --drop 0.5
 ```
+
+## Broader benchmark scaffold
+Beyond the runnable models, the package is an open-science **ecosystem scaffold**:
+- **Application taxonomy** — 10 families (`gmns_opt.applications` / `benchmark.registry`), each with formulation
+  classes, required/optional GMNS files, outputs, solver tier, visualization, and **maturity**
+  (runnable / scaffold / planned). See [docs/application_taxonomy.md](docs/application_taxonomy.md).
+- **Tensor framework** — `gmns_opt.tensor`: sparse `x[o,d,m,p,τ,s,a]` + companion tensors (D/F/Q/U/C/R/V),
+  GMNS→demand-tensor conversion, scenario expansion, CSV/JSON export. See [docs/tensor_framework.md](docs/tensor_framework.md).
+- **Scenario generator** — `gmns_opt.scenarios`: deterministic normal / capacity_drop / demand_surge / work_zone
+  / weather / cav_penetration / uam_weather_restriction (fixed seeds).
+- **Solver tiers** — `gmns_opt.solvers`: Tier 0 (networkx/scipy-HiGHS) → 1 (Pyomo) → 2 (commercial, optional) →
+  3 (GPU/neural/RL). No commercial dependency. See [docs/solver_tiers.md](docs/solver_tiers.md).
+- **ML-for-optimization readiness** — `gmns_opt.ml`: GMNS feature extraction (GNN-ready), learning-to-warm-start
+  interface, learning-to-branch dataset schema. See [docs/ml_for_optimization.md](docs/ml_for_optimization.md).
+- **GUI4GMNS visualization** — `gmns_opt.visualization.export_optimization_layers` → GeoJSON + decision/constraint/
+  trace/scenario CSVs. See [docs/gui4gmns_integration.md](docs/gui4gmns_integration.md).
+- **Case templates** — `case_templates/` (one per family) and 13 runnable/scaffold seed cases (`cases/00..12`).
 ```python
 from gmns_opt import run_case
 res = run_case("cases/02_sioux_falls_assignment")
@@ -81,8 +102,11 @@ H. transit frequency & accessibility. See [docs/BENCHMARK_SPEC.md](docs/BENCHMAR
 COPT / Mosek · `Tier 3` GPU / cuOpt / ADMM / RL / neural heuristics. Start license-free; scale up when needed.
 
 ## Docs
+[vision](docs/vision.md) · [application taxonomy](docs/application_taxonomy.md) ·
+[tensor framework](docs/tensor_framework.md) · [benchmark ladder](docs/benchmark_ladder.md) ·
+[solver tiers](docs/solver_tiers.md) · [ML for optimization](docs/ml_for_optimization.md) ·
+[GUI4GMNS integration](docs/gui4gmns_integration.md) · [open-science test cases](docs/open_science_test_cases.md) ·
 [benchmark spec](docs/BENCHMARK_SPEC.md) · [data contract](docs/data_contract.md) ·
-[tutorial ladder](docs/tutorial_ladder.md) · [positioning](docs/positioning.md) ·
 [roadmap](../dev/ROADMAP.md) · [references](../references/README.md)
 
 ## License

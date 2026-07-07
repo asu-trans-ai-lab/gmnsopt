@@ -1,0 +1,10 @@
+problem_name: cav_uam_air_ground_skeleton
+problem_type: multimodal_skeleton
+problem_family: uam_air_ground_coordination
+formulation_class: [MIP, dynamic, stochastic, RL]
+network_format: gmns
+level: 5
+params: { modes: [auto, cav, uam], time_stages: 4, scenarios: [normal, weather] }
+objective: { primary: minimize_multimodal_cost, note: scaffold_not_solved }
+outputs: [decision_variable.csv, constraint_status.csv, objective_trace.csv, summary.md]
+maturity: scaffold

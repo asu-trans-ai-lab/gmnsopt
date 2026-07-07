@@ -1,0 +1,17 @@
+problem_name: routing_accessibility_template
+problem_family: routing_accessibility
+problem_type: shortest_path
+formulation_class: ['LP', 'network_flow']
+network_format: gmns
+time_horizon: static            # static | dynamic (tau stages)
+modes: [auto]
+scenario_dimension: [normal]    # + capacity_drop | demand_surge | weather | incident | cav_penetration
+decision_variables: [TODO]
+objectives: { primary: TODO }
+constraints: [flow_conservation]
+required_files: ['node.csv', 'link.csv']
+optional_files: ['zone.csv', 'demand.csv', 'transit_route.csv']
+default_solver: tier0
+outputs: ['solution.csv', 'objective_trace.csv', 'constraint_status.csv', 'summary.md']
+visualization: { type: path_highlight, gui4gmns: true }
+maturity: runnable

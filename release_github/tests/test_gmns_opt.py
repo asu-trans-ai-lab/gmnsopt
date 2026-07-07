@@ -49,7 +49,8 @@ def test_all_cases_run_and_feasible():
     for pj in cases:
         r = run_case(os.path.dirname(pj), write=False)
         assert r["meta"]["feasible"], f"{pj} infeasible"
-        assert r["objective"] is not None
+        # runnable cases report an objective; scaffolds may not (schema/placeholder only)
+        assert r["objective"] is not None or r["meta"].get("maturity") == "scaffold"
 
 
 def test_system_optimal_below_user_equilibrium():

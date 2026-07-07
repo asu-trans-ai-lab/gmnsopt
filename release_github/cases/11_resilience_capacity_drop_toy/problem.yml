@@ -1,0 +1,10 @@
+problem_name: sioux_falls_incident_capacity_drop
+problem_type: resilience_scenario
+problem_family: resilience_workzone_incident
+formulation_class: [scenario, network_flow]
+network_format: gmns
+level: 4
+params: { drop_link_ids: [1, 2, 3], drop: 0.5, by_zone: true }
+objective: { primary: minimize_system_delay_under_incident }
+outputs: [scenario_summary.csv, solution.csv, constraint_status.csv, objective_trace.csv]
+maturity: runnable

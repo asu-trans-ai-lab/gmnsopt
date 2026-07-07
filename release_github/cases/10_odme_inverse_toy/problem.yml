@@ -1,0 +1,10 @@
+problem_name: odme_inverse_toy
+problem_type: odme
+problem_family: odme_inverse_optimization
+formulation_class: [QP, inverse_optimization]
+network_format: gmns
+level: 0
+params: { reg: 0.1, by_zone: true }   # observed counts read from input/counts.csv
+objective: { primary: minimize_count_mismatch_plus_prior_deviation }
+solver: { default: scipy_nnls }
+maturity: runnable

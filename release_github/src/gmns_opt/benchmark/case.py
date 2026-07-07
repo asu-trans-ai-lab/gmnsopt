@@ -11,8 +11,19 @@ import os
 import yaml
 from ..io import read_gmns, validate_gmns
 from ..models import (shortest_path, accessibility, min_cost_flow, max_flow, traffic_assignment,
-                      system_optimal, odme, signal_timing, network_design, facility_location)
+                      system_optimal, odme, signal_timing, network_design, facility_location,
+                      resilience_scenario, multimodal_skeleton)
 from .report import write_outputs
+
+
+def _ml_features(net, p, cd):
+    from ..ml import extract_features
+    feat = extract_features(net, scenario=p.get("scenario", "normal"))
+    return {"objective": feat["stats"]["n_links"], "solution": [], "objective_trace": [],
+            "constraint_status": [{"constraint": "feature_extraction", "status": "ok"}],
+            "meta": {"feasible": True, "maturity": "scaffold", **feat["stats"],
+                     "note": "GMNS feature blocks for ML-for-optimization (see docs/ml_for_optimization.md)"},
+            "features": feat}
 
 # each entry: (net, params, case_dir) -> result dict
 DISPATCH = {
@@ -40,6 +51,13 @@ DISPATCH = {
                                                         candidate_link_ids=p.get("candidate_link_ids")),
     "facility_location": lambda net, p, cd: facility_location(net, p["k"], candidates=p.get("candidates"),
                                                              weight=p.get("weight", "fftt_min")),
+    "resilience_scenario": lambda net, p, cd: resilience_scenario(net, drop_link_ids=p.get("drop_link_ids"),
+                                                                 drop=p.get("drop", 0.5), case_dir=cd,
+                                                                 by_zone=p.get("by_zone", True)),
+    "multimodal_skeleton": lambda net, p, cd: multimodal_skeleton(net, modes=p.get("modes"),
+                                                                 time_stages=p.get("time_stages", 4),
+                                                                 scenarios=p.get("scenarios")),
+    "ml_features": _ml_features,
 }
 
 

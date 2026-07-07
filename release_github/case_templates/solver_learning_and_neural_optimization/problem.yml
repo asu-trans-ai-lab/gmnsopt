@@ -1,0 +1,17 @@
+problem_name: solver_learning_and_neural_optimization_template
+problem_family: solver_learning_and_neural_optimization
+problem_type: ml_features
+formulation_class: ['ML', 'RL', 'surrogate']
+network_format: gmns
+time_horizon: static            # static | dynamic (tau stages)
+modes: [auto]
+scenario_dimension: [normal]    # + capacity_drop | demand_surge | weather | incident | cav_penetration
+decision_variables: [TODO]
+objectives: { primary: TODO }
+constraints: [flow_conservation]
+required_files: ['node.csv', 'link.csv', 'demand.csv']
+optional_files: ['scenario.csv']
+default_solver: tier3
+outputs: ['features.json', 'warm_start.csv', 'objective_trace.csv', 'summary.md']
+visualization: { type: convergence_panel, gui4gmns: true }
+maturity: scaffold

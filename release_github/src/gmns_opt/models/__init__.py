@@ -23,6 +23,9 @@ from .odme import odme
 from .signal_timing import signal_timing
 from .network_design import network_design
 from .facility_location import facility_location
+from .resilience import resilience_scenario
+from .multimodal_skeleton import multimodal_skeleton
 
 __all__ = ["shortest_path", "accessibility", "min_cost_flow", "max_flow", "traffic_assignment",
-           "system_optimal", "odme", "signal_timing", "network_design", "facility_location"]
+           "system_optimal", "odme", "signal_timing", "network_design", "facility_location",
+           "resilience_scenario", "multimodal_skeleton"]

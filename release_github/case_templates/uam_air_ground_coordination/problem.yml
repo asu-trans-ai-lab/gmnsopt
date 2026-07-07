@@ -1,0 +1,17 @@
+problem_name: uam_air_ground_coordination_template
+problem_family: uam_air_ground_coordination
+problem_type: multimodal_skeleton
+formulation_class: ['MIP', 'stochastic', 'dynamic', 'RL']
+network_format: gmns
+time_horizon: static            # static | dynamic (tau stages)
+modes: [auto, cav, uam]
+scenario_dimension: [normal]    # + capacity_drop | demand_surge | weather | incident | cav_penetration
+decision_variables: [TODO]
+objectives: { primary: TODO }
+constraints: [flow_conservation]
+required_files: ['node.csv', 'link.csv', 'demand.csv']
+optional_files: ['vertiport.csv', 'air_link.csv', 'weather_scenario.csv', 'charging_station.csv']
+default_solver: tier2
+outputs: ['decision_variable.csv', 'constraint_status.csv', 'objective_trace.csv', 'summary.md']
+visualization: { type: vertiport_queue_3d, gui4gmns: true }
+maturity: scaffold

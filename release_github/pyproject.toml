@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gmns4optimization"
-version = "0.1.0"
+version = "0.2.0"
 description = "GMNS-native transportation optimization testbed: reproducible, visual, data-grounded, progressively harder benchmark cases (shortest path -> assignment -> ODME -> signal -> resilience) for open-source & commercial solvers, ML-for-optimization, and RL/control."
 readme = "README.md"
 requires-python = ">=3.9"
