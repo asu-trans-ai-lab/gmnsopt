@@ -3,13 +3,13 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gmns4optimization"
+name = "gmnsopt"
 version = "0.2.0"
 description = "GMNS-native transportation optimization testbed: reproducible, visual, data-grounded, progressively harder benchmark cases (shortest path -> assignment -> ODME -> signal -> resilience) for open-source & commercial solvers, ML-for-optimization, and RL/control."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
-authors = [{ name = "gmns4optimization contributors" }]
+authors = [{ name = "gmnsopt contributors" }]
 keywords = ["GMNS", "transportation", "optimization", "traffic-assignment", "ODME",
             "benchmark", "operations-research", "networkx", "HiGHS"]
 classifiers = [
@@ -29,7 +29,7 @@ dev = ["pytest>=7.0", "ruff>=0.1"]
 gmns-opt = "gmns_opt.cli:main"
 
 [project.urls]
-Source = "https://github.com/asu-trans-ai-lab/gmns4optimization"
+Source = "https://github.com/asu-trans-ai-lab/gmnsopt"
 
 [tool.setuptools.packages.find]
 where = ["src"]

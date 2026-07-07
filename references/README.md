@@ -1,6 +1,6 @@
 # References (English index)
 
-Background and sources for gmns4optimization. Full BibTeX in [`references.bib`](references.bib).
+Background and sources for gmnsopt. Full BibTeX in [`references.bib`](references.bib).
 
 ## Data standard & benchmark networks
 - **GMNS** — General Modeling Network Specification. https://github.com/zephyr-data-specs/GMNS ·

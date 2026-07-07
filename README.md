@@ -1,9 +1,9 @@
-# GMNS4optimization
+# gmnsopt
 
-Workspace for **gmns4optimization** — a GMNS-native transportation optimization testbed.
+Workspace for **gmnsopt** — a GMNS-native transportation optimization testbed.
 
 ```
-GMNS4optimization/
+gmnsopt/
   release_github/   ← the shippable, pip-installable package (open source, English)
   dev/              ← development roadmap, design, teaching-backbone mapping (English)
   references/       ← sources, BibTeX, and the teaching textbook (zip)

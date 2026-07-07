@@ -2,9 +2,9 @@
 
 The reference textbook (references/) provides the teaching structure:
 optimization foundations -> modeling tricks -> practical cases -> solver implementation -> debugging/IIS/tuning.
-gmns4optimization reuses that structure but replaces generic cases with GMNS-native transportation cases.
+gmnsopt reuses that structure but replaces generic cases with GMNS-native transportation cases.
 
-| book foundation | gmns4optimization translation |
+| book foundation | gmnsopt translation |
 |---|---|
 | LP / MIP / QP / SOCP | shortest path, min-cost flow, traffic assignment, capacity design |
 | Big-M logic | signal control, lane-use control, work-zone scheduling, if-then restrictions |

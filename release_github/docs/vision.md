@@ -1,6 +1,6 @@
 # Vision
 
-GMNS4Optimization is an **open-science benchmark and modeling ecosystem** that turns GMNS networks into
+gmnsopt is an **open-science benchmark and modeling ecosystem** that turns GMNS networks into
 **dynamic, stochastic, multimodal, high-dimensional** transportation optimization test cases for classical
 solvers, commercial solvers, neural optimization, RL/control, CAV, UAM, logistics, resilience, and
 planning/operations applications.

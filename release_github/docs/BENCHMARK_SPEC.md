@@ -1,4 +1,4 @@
-# gmns4optimization — open-science benchmark spec
+# gmnsopt — open-science benchmark spec
 
 Every case is **both a mathematical optimization problem and a visual transportation scenario**. The spec
 borrows MIPLIB-style discipline (solver-readable, standardized, benchmarkable) and adds transportation

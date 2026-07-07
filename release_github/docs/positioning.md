@@ -1,6 +1,6 @@
 # Positioning
 
-gmns4optimization is an open, GMNS-native optimization package and **open-science benchmark ecosystem** for
+gmnsopt is an open, GMNS-native optimization package and **open-science benchmark ecosystem** for
 transportation planning, operations, and research. It converts standardized GMNS networks, demand files,
 operational controls, and scenario data into mathematical-programming and network-optimization models.
 

@@ -1,4 +1,4 @@
-# gmns4optimization — development roadmap
+# gmnsopt — development roadmap
 
 Goal: an open GMNS-native benchmark ecosystem where **open-source solvers, commercial solvers, ML-for-
 optimization, RL/control, and transportation researchers** test algorithms on realistic, dynamic, stochastic,

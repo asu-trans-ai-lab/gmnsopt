@@ -1,4 +1,4 @@
-"""gmns4optimization — a GMNS-native transportation optimization testbed.
+"""gmnsopt — a GMNS-native transportation optimization testbed.
 
 Turns standardized GMNS networks + demand + operations data into reproducible optimization cases:
     GMNS network + demand -> optimization model -> solver -> (simulation check) -> report.

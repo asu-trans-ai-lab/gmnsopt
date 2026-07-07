@@ -1,4 +1,4 @@
-# gmns4optimization
+# gmnsopt
 
 **A GMNS-native transportation optimization testbed** — reproducible, visual, data-grounded, and
 progressively harder. It turns standardized [GMNS](https://github.com/zephyr-data-specs/GMNS) networks +
@@ -13,7 +13,7 @@ GMNS network + demand + operations data
   → reproducible benchmark report
 ```
 
-> **gmns4optimization turns GMNS from a network data standard into a transportation optimization testbed
+> **gmnsopt turns GMNS from a network data standard into a transportation optimization testbed
 > for planning, operations, control, pricing, resilience, and multimodal decision-making** — where
 > open-source solvers, commercial solvers, ML-for-optimization, and RL/control methods can all be tested on
 > realistic, dynamic, stochastic, visually explainable mobility problems.
