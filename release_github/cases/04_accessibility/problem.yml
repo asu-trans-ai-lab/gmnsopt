@@ -1,0 +1,8 @@
+problem_name: sioux_falls_accessibility
+problem_type: accessibility
+network_format: gmns
+level: 1
+formulation_class: [LP, network_flow]
+params: { threshold_min: 15.0, weight: fftt_min }
+objective: { primary: cumulative_opportunity_accessibility }
+visualization: { gui4gmns: true }

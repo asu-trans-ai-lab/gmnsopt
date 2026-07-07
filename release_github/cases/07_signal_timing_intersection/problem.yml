@@ -1,0 +1,16 @@
+problem_name: single_intersection_green_split
+problem_type: signal_timing
+network_format: gmns
+level: 0
+formulation_class: [LP, operations]
+params:
+  cycle: 90
+  lost_time_per_phase: 4
+  min_green: 7
+  phases:
+    - { name: EW_through, demand: 1200, saturation: 3400 }
+    - { name: NS_through, demand: 800,  saturation: 3400 }
+    - { name: EW_left,    demand: 300,  saturation: 1700 }
+    - { name: NS_left,    demand: 250,  saturation: 1700 }
+objective: { primary: minimize_demand_weighted_delay }
+solver: { default: scipy_linprog_highs }

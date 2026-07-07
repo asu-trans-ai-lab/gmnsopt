@@ -1,0 +1,14 @@
+problem_name: network_design_fixed_charge
+problem_type: network_design
+network_format: gmns
+level: 0
+formulation_class: [MILP, network_design]
+params:
+  source: 1
+  sink: 2
+  flow: 100
+  budget: 5
+  candidate_link_ids: [3]     # link 3 (direct 1->3) is buildable at cost = length (2); existing detour is free
+  by_zone: true
+objective: { primary: minimize_build_plus_travel_cost }
+solver: { default: scipy_milp_highs }

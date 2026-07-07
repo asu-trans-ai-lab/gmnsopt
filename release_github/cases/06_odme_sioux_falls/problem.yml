@@ -1,0 +1,8 @@
+problem_name: sioux_falls_odme_inverse
+problem_type: odme
+network_format: gmns
+level: 3
+formulation_class: [QP, inverse_optimization]
+params: { reg: 0.1, by_zone: true }   # observed counts synthesized (true OD = 1.2x base) if input/counts.csv absent
+objective: { primary: minimize_count_mismatch_plus_prior }
+visualization: { gui4gmns: true }

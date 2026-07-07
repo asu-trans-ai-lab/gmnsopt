@@ -1,0 +1,9 @@
+problem_name: sioux_falls_ev_charging_pmedian
+problem_type: facility_location
+network_format: gmns
+level: 2
+formulation_class: [MILP, siting]
+params: { k: 3, weight: fftt_min }     # open 3 charging hubs to minimize demand-weighted access time
+objective: { primary: minimize_weighted_access_time }
+solver: { default: scipy_milp_highs }
+visualization: { gui4gmns: true }

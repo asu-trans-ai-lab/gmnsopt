@@ -19,16 +19,27 @@ GMNS network + demand + operations data
 > realistic, dynamic, stochastic, visually explainable mobility problems.
 
 ## What ships in v0.1 (working, dependency-light)
-Core kernel + three runnable cases on the common **case contract** (`problem.yml` + GMNS `input/` →
-`output/solution.csv`, `objective_trace.csv`, `constraint_status.csv`, `summary.md`):
+Core kernel + **ten runnable cases** across the model families and formulation classes (LP / MILP / convex-NLP
+/ inverse), on the common **case contract** (`problem.yml` + GMNS `input/` → `output/solution.csv`,
+`objective_trace.csv`, `constraint_status.csv`, `summary.md`):
 
-| model | case | solver |
-|---|---|---|
-| `shortest_path` | `cases/00_shortest_path_toy` | networkx Dijkstra |
-| `min_cost_flow` | `cases/01_min_cost_flow_toy` | networkx min-cost-flow |
-| `traffic_assignment` (UE, Frank-Wolfe + BPR) | `cases/02_sioux_falls_assignment` | Frank-Wolfe (built-in) |
+| model | family | class | case | solver |
+|---|---|---|---|---|
+| `shortest_path` | A routing | LP | `cases/00_shortest_path_toy` | networkx Dijkstra |
+| `min_cost_flow` | flow | LP | `cases/01_min_cost_flow_toy` | networkx |
+| `traffic_assignment` (UE) | B assignment | convex-NLP | `cases/02_sioux_falls_assignment` | Frank-Wolfe + BPR |
+| `system_optimal` (+ pricing) | B assignment | convex-NLP | `cases/03_system_optimal_pricing` | Frank-Wolfe (marginal cost) |
+| `accessibility` | A routing | LP | `cases/04_accessibility` | networkx skims |
+| `max_flow` (min-cut) | F resilience | LP | `cases/05_max_flow_evacuation` | networkx max-flow |
+| `odme` (inverse) | C ODME | QP/NNLS | `cases/06_odme_sioux_falls` | scipy NNLS |
+| `signal_timing` | D operations | LP | `cases/07_signal_timing_intersection` | scipy linprog (HiGHS) |
+| `network_design` | E design | **MILP** | `cases/08_network_design_toy` | **scipy milp (HiGHS)** |
+| `facility_location` (EV charging) | G siting | **MILP** | `cases/09_facility_location_charging` | **scipy milp (HiGHS)** |
 
-Only `numpy`, `scipy`, `networkx`, `PyYAML` are required. Optional extras add Pyomo/HiGHS, pandas/matplotlib.
+Verified invariants: system-optimal total travel time **<** user-equilibrium; ODME count-RMSE 2720 → 185;
+MILP network design respects the budget; p-median opens exactly K hubs. Only `numpy`, `scipy`, `networkx`,
+`PyYAML` are required (MILP/LP use scipy's HiGHS backend — **no commercial solver needed**). Optional extras
+add Pyomo/HiGHS bindings, pandas/matplotlib.
 
 ## Install
 ```bash

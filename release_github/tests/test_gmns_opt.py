@@ -42,6 +42,40 @@ def test_sioux_falls_ue_converges():
     assert all(s["voc"] >= 0 for s in r["solution"])
 
 
+def test_all_cases_run_and_feasible():
+    import glob
+    cases = sorted(glob.glob(os.path.join(CASES, "*", "problem.yml")))
+    assert len(cases) >= 10                       # substantial case library, not just a few
+    for pj in cases:
+        r = run_case(os.path.dirname(pj), write=False)
+        assert r["meta"]["feasible"], f"{pj} infeasible"
+        assert r["objective"] is not None
+
+
+def test_system_optimal_below_user_equilibrium():
+    ue = run_case(os.path.join(CASES, "02_sioux_falls_assignment"), write=False)
+    so = run_case(os.path.join(CASES, "03_system_optimal_pricing"), write=False)
+    # system-optimal total travel time <= user-equilibrium total travel time
+    assert so["objective"] <= ue["meta"]["vmt_min_weighted"] + 1e-6
+    assert any(s["marginal_cost_toll_min"] >= 0 for s in so["solution"])
+
+
+def test_odme_reduces_count_mismatch():
+    r = run_case(os.path.join(CASES, "06_odme_sioux_falls"), write=False)
+    assert r["meta"]["count_rmse_after"] < r["meta"]["count_rmse_before"]
+
+
+def test_network_design_milp_respects_budget():
+    r = run_case(os.path.join(CASES, "08_network_design_toy"), write=False)
+    assert r["meta"]["build_spend"] <= r["meta"]["budget"] + 1e-6
+    assert r["meta"]["n_candidate_built"] == 1     # builds the direct link within budget
+
+
+def test_facility_location_opens_k():
+    r = run_case(os.path.join(CASES, "09_facility_location_charging"), write=False)
+    assert len(r["meta"]["opened_facility_zones"]) == r["meta"]["k"]
+
+
 def test_outputs_written(tmp_path):
     import shutil
     dst = tmp_path / "case"

@@ -1,0 +1,8 @@
+problem_name: sioux_falls_system_optimal_pricing
+problem_type: system_optimal
+network_format: gmns
+level: 1
+formulation_class: [convex_NLP, pricing]
+params: { max_iter: 80, gap_tol: 0.0001, by_zone: true }
+objective: { primary: minimize_total_system_travel_time, secondary: marginal_cost_tolls }
+visualization: { gui4gmns: true }

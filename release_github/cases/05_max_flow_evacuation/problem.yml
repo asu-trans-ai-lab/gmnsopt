@@ -1,0 +1,8 @@
+problem_name: sioux_falls_max_flow_evacuation
+problem_type: max_flow
+network_format: gmns
+level: 3
+formulation_class: [LP, network_flow]
+params: { source: 1, sink: 20, by_zone: true }
+objective: { primary: maximize_evacuation_throughput }
+visualization: { gui4gmns: true }
