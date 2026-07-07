@@ -1,5 +1,10 @@
 # gmnsopt
 
+[![CI](https://github.com/asu-trans-ai-lab/gmnsopt/actions/workflows/ci.yml/badge.svg)](https://github.com/asu-trans-ai-lab/gmnsopt/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/gmnsopt.svg)](https://pypi.org/project/gmnsopt/)
+[![Python](https://img.shields.io/pypi/pyversions/gmnsopt.svg)](https://pypi.org/project/gmnsopt/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 **A GMNS-native transportation optimization testbed** — reproducible, visual, data-grounded, and
 progressively harder. It turns standardized [GMNS](https://github.com/zephyr-data-specs/GMNS) networks +
 demand + operations data into mathematical-programming and network-optimization cases:
