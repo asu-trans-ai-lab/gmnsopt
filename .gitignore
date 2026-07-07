@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+release_github/cases/**/output/
+# teaching textbook kept local (upstream copyright) — index + bib are public
+references/*.zip

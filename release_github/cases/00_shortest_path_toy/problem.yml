@@ -1,0 +1,16 @@
+problem_name: shortest_path_toy
+problem_type: shortest_path
+network_format: gmns
+level: 0                       # formulation micro-case
+formulation_class: [LP, network_flow]
+params:
+  origin: 1                   # zone id
+  destination: 2              # zone id
+  by_zone: true
+  weight: fftt_min            # generalized cost = free-flow travel time (minutes)
+objective:
+  primary: minimize_travel_time
+solver:
+  default: networkx_dijkstra
+visualization:
+  gui4gmns: true

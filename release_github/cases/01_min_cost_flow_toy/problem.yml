@@ -1,0 +1,16 @@
+problem_name: min_cost_flow_toy
+problem_type: min_cost_flow
+network_format: gmns
+level: 0
+formulation_class: [LP, network_flow]
+params:
+  by_zone: true
+  supplies:                    # net supply per zone (must sum to 0): + source, - sink
+    1: 600
+    2: -600
+objective:
+  primary: minimize_total_cost
+solver:
+  default: networkx_min_cost_flow
+visualization:
+  gui4gmns: true

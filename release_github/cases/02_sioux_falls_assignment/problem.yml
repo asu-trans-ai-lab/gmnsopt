@@ -1,0 +1,18 @@
+problem_name: sioux_falls_user_equilibrium
+problem_type: traffic_assignment
+network_format: gmns
+level: 1                        # classic research benchmark (converted to GMNS)
+formulation_class: [convex_NLP, network_flow]
+params:
+  max_iter: 80
+  gap_tol: 0.0001
+  by_zone: true
+objective:
+  primary: user_equilibrium_beckmann
+solver:
+  default: frank_wolfe
+constraints:
+  - flow_conservation
+  - bpr_congestion
+visualization:
+  gui4gmns: true
